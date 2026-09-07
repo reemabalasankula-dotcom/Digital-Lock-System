@@ -2,15 +2,19 @@
 
 ## About the Project
 
-Digital Lock System is an Arduino-based security project that provides password-based access control. A keypad is used to enter the password, while a servo motor acts as the locking mechanism.
+Digital Lock System is an Arduino-based security project that provides password-based access control. A keypad is used to enter the password, and a servo motor is used as the locking mechanism.
+
+The system also uses a buzzer to alert when an incorrect password is entered multiple times.
 
 ## Features
 
 - Password-based access
-- Keypad input
-- Servo motor controlled locking
-- Buzzer alert for wrong attempts
-- 30-second lockout after three wrong passwords
+- 4×4 keypad input
+- Servo motor controlled lock
+- Buzzer alert
+- Three-attempt security system
+- 30-second lockout after three wrong attempts
+- Automatic locking after unlocking
 
 ## Hardware Used
 
@@ -26,18 +30,28 @@ Digital Lock System is an Arduino-based security project that provides password-
 
 - Arduino IDE
 - Embedded C/C++
-- Servo Library
 - Keypad Library
+- Servo Library
+
+## Demo Password
+
+The password used in the project code is:
+
+`1121`
+
+> This password is included only for demonstration purposes.
 
 ## How It Works
 
 1. The user enters the password using the keypad.
-2. The Arduino Nano checks the entered password.
-3. If the password is correct, the servo motor rotates and the lock opens.
-4. If the password is wrong, the user can try again.
-5. After three consecutive wrong attempts, the buzzer turns ON.
-6. The system blocks further input for 30 seconds.
-7. After 30 seconds, the system allows the user to enter the password again.
+2. The Arduino Nano compares the entered password with the stored password.
+3. If the password is correct, the servo motor rotates to unlock the door.
+4. A short buzzer sound indicates successful access.
+5. The door remains unlocked for 5 seconds.
+6. The servo then returns to the locked position.
+7. If the password is incorrect, the system shows "Access Denied".
+8. After three wrong attempts, the buzzer is activated and the system locks further input for 30 seconds.
+9. After 30 seconds, the user can try again.
 
 ## Pin Connections
 
@@ -45,29 +59,25 @@ Digital Lock System is an Arduino-based security project that provides password-
 |---|---|
 | Keypad Rows | D2–D5 |
 | Keypad Columns | D6–D9 |
-| Servo Motor | D10 |
-| Buzzer | D11 |
-| Power | 5V |
-| Ground | GND |
+| Servo Motor | D9 |
+| Buzzer | D10 |
 
-## Code
+## Keypad Controls
 
-The Arduino source code is available in the `code` folder.
+| Key | Function |
+|---|---|
+| `#` | Check Password |
+| `*` | Clear Input |
+| `0–9` | Enter Password |
+
 
 ## My Contribution
 
 - Worked on the Arduino-based implementation.
 - Worked with keypad password input.
-- Worked with servo motor and buzzer control.
-- Tested password verification and lockout functionality.
-
-## Project Images
-
-Project images will be added here.
-
-## Demo Video
-
-Project demonstration video will be added here.
+- Worked with servo motor control.
+- Worked with buzzer alerts.
+- Tested password verification and lockout functionality. 
 
 ## Future Improvements
 
